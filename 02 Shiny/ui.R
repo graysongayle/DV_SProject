@@ -23,7 +23,7 @@ navbarPage(
   ),
   tabPanel(title = "Barchart",
            sidebarPanel(
-             actionButton(inputId = "clicks",  label = "Click me")
+             actionButton(inputId = "clicks",  label = "Load bar chart")
            ),
            
            mainPanel(plotOutput("distPlot1")

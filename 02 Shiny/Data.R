@@ -7,8 +7,8 @@ require(dplyr)
 # The following is equivalent to "04 Blending 2 Data Sources.twb"
 
 df <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
-  """select country_name , indicator_name , avg(X2013) as Y from countries
-where country_code = \\\'JAP\\\'
+  """select country_name, indicator_name, avg(X2013) from countries
+where country_code = \\\'JPN\\\'
                                                 group by country_name,  indicator_name
                                                 having avg(X2013) is not null
                                                 order by avg(x2013) desc
