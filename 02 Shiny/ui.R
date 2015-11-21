@@ -29,12 +29,12 @@ navbarPage(
            mainPanel(plotOutput("distPlot1")
            )
   ),
-  tabPanel(title = "Blending 2 Data Sources",
+  tabPanel(title = "Scatterplot",
            sidebarPanel(
              actionButton(inputId = "clicks3",  label = "Click me")
            ),
            
-           mainPanel(plotOutput("distPlot3")
+           mainPanel(plotOutput("distPlot2")
            )        
   )
 )
