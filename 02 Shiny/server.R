@@ -10,11 +10,7 @@ require(DT)
 
 shinyServer(function(input, output) {
   
-  KPI_Low_Max_value <- reactive({input$KPI1})     
-  KPI_Medium_Max_value <- reactive({input$KPI2})
-  rv <- reactiveValues(alpha = 0.50)
-  observeEvent(input$light, { rv$alpha <- 0.50 })
-  observeEvent(input$dark, { rv$alpha <- 0.75 })
+
   
   df <- eventReactive(input$clicks, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
                                                                                 "select country_name, indicator_name, avg(X2013) as Count_Sum from countries
@@ -38,18 +34,25 @@ where indicator_name = \\\'Patent applications, residents\\\' and x2012 is not n
   KPI_Low_Max_value <- reactive({input$KPI1})     
   KPI_Medium_Max_value <- reactive({input$KPI2})
   rv <- reactiveValues(alpha = 0.50)
-  observeEvent(input$light, { rv$alpha <- 0.50 })
-  observeEvent(input$dark, { rv$alpha <- 0.75 })
+
   
   df2 <- eventReactive(input$clicks2, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
-                                                                               "select country_name, indicator_name, avg(X2005) as kpi
+                                                                               "select country_name, indicator_name, amount, kpi as diff,
+
+                                                                                case
+                                                                                 when kpi < "p1" then \\\'03 Low\\\'
+                                                                                 when kpi < "p2" then \\\'02 Medium\\\'
+                                                                                 else \\\'01 High\\\'
+                                                                                 end kpi
+                                                                                from (select country_name, indicator_name, avg(x2005) as AMOUNT,avg(X2005)-avg(x2004) as kpi 
                                                                                 from countries
-                                                                                 where country_name in (\\\'Belgium\\\',\\\'Brazil\\\',\\\'Czech Republic\\\', \\\'Korea, Rep.\\\',\\\'Mexico\\\') and indicator_code in (\\\'IP.TMK.NRES\\\',\\\'IP.TMK.RESD\\\',\\\'IP.TMK.TOTL\\\')
-                                                                                 group by country_name, indicator_name
-                                                                                 order by country_name"
+                                                                                where country_name in (\\\'Belgium\\\',\\\'Brazil\\\',\\\'Czech Republic\\\', \\\'Korea, Rep.\\\',\\\'Mexico\\\') and indicator_code in (\\\'IP.TMK.NRES\\\',\\\'IP.TMK.RESD\\\',\\\'IP.TMK.TOTL\\\')
+                                                                                group by country_name, indicator_name
+                                                                                order by country_name;)"
                                                                                  ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_gmg954', PASS='orcl_gmg954', 
-                                                                                                   MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value(), p2=KPI_Medium_Max_value()), verbose = TRUE)))
-  })
+                                                                                                   MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_Low_Max_value(), p2=KPI_Medium_Max_value(), verbose = TRUE)))
+  )})
+  
   
   
   
@@ -129,24 +132,24 @@ where indicator_name = \\\'Patent applications, residents\\\' and x2012 is not n
   output$distPlot <- renderPlot({             
     plot <- ggplot() + 
       coord_cartesian() + 
-      #scale_x_discrete() +
-      #scale_y_discrete() +
+      scale_x_discrete() +
+      scale_y_discrete() +
       labs(title=isolate(input$title)) +
       labs(x=paste("INDICATOR_NAME"), y=paste("COUNTRY_NAME")) +
-      layer(data=df(), 
-            mapping=aes(x=INDICATOR_NAME, y=COUNTRY_NAME), 
+      layer(data=df2(), 
+            mapping=aes(x=INDICATOR_NAME, y=COUNTRY_NAME, label=AMOUNT), 
             stat="identity", 
             stat_params=list(), 
             geom="text",
             geom_params=list(colour="black"), 
             position=position_identity()
       ) +
-      layer(data=df(), 
+      layer(data=df2(), 
             mapping=aes(x=INDICATOR_NAME, y=COUNTRY_NAME, fill=KPI), 
             stat="identity", 
             stat_params=list(), 
             geom="tile",
-            #geom_params=list(alpha=rv$alpha), 
+            geom_params=list(alpha=rv$alpha), 
             position=position_identity()
       )
     plot

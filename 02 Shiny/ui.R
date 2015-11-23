@@ -7,13 +7,13 @@ navbarPage(
   tabPanel(title = "Crosstab",
            sidebarPanel(
             
-             sliderInput("KPI1", "KPI_Low_Max_value:", 
-                         min = 1, max = 4750,  value = 4750),
-             sliderInput("KPI2", "KPI_Medium_Max_value:", 
-                         min = 4750, max = 5000,  value = 5000),
+             sliderInput("KPI1", "Min difference between 2005 and 2004", 
+                         min = -5000, max = 0,  value = -2500),
+             sliderInput("KPI2", "Max difference between 2005 and 2004", 
+                         min = 0, max = 10000,  value = 2500),
              textInput(inputId = "title", 
                        label = "Crosstab Title",
-                       value = "New Title"),
+                       value = "Trademark Applications of Residents and Non Residents in 2005.  KPI is the difference between 2005 and 2004 values."),
              actionButton(inputId = "clicks2",  label = "Click me")
            ),
            
@@ -30,7 +30,7 @@ navbarPage(
   ),
   tabPanel(title = "Scatterplot",
            sidebarPanel(
-             actionButton(inputId = "clicks3",  label = "Click me")
+             actionButton(inputId = "clicks3",  label = "Load scatterplot")
            ),
            
            mainPanel(plotOutput("distPlot2")
