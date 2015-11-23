@@ -1,0 +1,34 @@
+---
+title: "DV_SProject"
+output: html_document
+Author: "Grayson Gayle, Madeline Nash, David Schluckebier"
+Date: Due November 23, 2015 11:59 pm
+---
+![](http://www.spikeybits.com/wp-content/uploads/2015/02/Money.jpeg)
+
+#How to Reproduce Our Work:
+Step 1: Create GitHub Repo with necessary folders for partners to collaborate
+      00 Doc contains the .Rmd and HTML files
+      01 Data contains the data set that was worked with
+      02 Shiny contains the server and user interface (ui) for the Shiny App
+Step 2: Use an interesting data set with data that may be easily and interestingly manipulated
+Step 3: Import the csv file into SQL Developer
+Step 4: 
+
+#Data Summary:
+Below is the dataset and first ten rows
+```{r}
+require("jsonlite")
+require ("RCurl")
+df <-
+summary(df)
+``` 
+
+#Shiny App link:
+
+##Scatter Plot
+Importance:
+##Cross Tab with KPI
+Importance:
+##Bar Chart with Reference Line
+Importance:
