@@ -6,6 +6,7 @@ Date: Due November 23, 2015 11:59 pm
 ---
 ![](http://www.madhyamam.com/en/sites/default/files/imagecache/w604/qeybxbvm.jpg)
 
+***
 #How to Reproduce Our Work:
 Step 1: Create GitHub Repo with necessary folders for partners to collaborate
       00 Doc contains the .Rmd and HTML files
@@ -15,6 +16,8 @@ Step 2: Use an interesting data set with data that may be easily and interesting
 Step 3: Import the csv file into SQL Developer
 Step 4: Save your app's server.R and ui.R script inside the 02 Shiny folder
 Step 5: Launch the shinyApp with runApp and exit by clicking escape
+
+***
 
 #Data Summary:
 Below is the dataset and first ten rows
@@ -31,17 +34,27 @@ head(Indicators)
 ###Data Explanation and Overal Manipulation:
 The above dataset - called Indicators - is a time series collection from 1960 to 2015 of development indicators amongst varoous countires.  It presents the most current and accurate global development data available, and includes national, regional and global estimates. Our group used this pertinent data to evaluate various indicators of economic success: Number of trademark and patent applications, high technology exports, research and development expenditure charges for the use of intellectual property.
 
-###Shiny Methodology
+***
+
+#Shiny Methodology
 * Shiny is an R package that makes it easy to build interactive web applications (apps) straight from R.
 * Shiny ui.R scripts use the function fluidPage to create a display that automatically adjusts to the dimensions of your user’s browser window. You lay out your app by placing elements in the fluidPage function.The user-interface (ui) script controls the layout and appearance of your app. It is defined in a source script named ui.R. Additionally, the server.R script contains the instructions that your computer needs to build your app.
 * Most of the script is wrapped in a call to renderPlot. This is an expression that generates a histogram. renderPlot indicates that the expression is "reactive" and should automatically re-execute whenver input changes. It also specifies that the output type is a plot.
 
-#Our Shiny App Walkthrough:
-*link to our app:
+### Shiny App Walkthrough:
+* link to our app:
+* Dashboard App:
+  + Bar Chart
+  + Cross Tab + KPI
+  + Scatter Plot
 
-##Scatter Plot
-Importance:
 ##Cross Tab with KPI
+Importance:
+##Scatter Plot
 Importance:
 ##Bar Chart with Reference Line
 Importance:
+
+***
+
+#Plot Summaries
