@@ -18,10 +18,9 @@ Step 4:
 #Data Summary:
 Below is the dataset and first ten rows
 ```{r}
-require("jsonlite")
-require ("RCurl")
-df <-
+df <-read.csv("../01 Data/14_Topic_en_csv_v2.csv")
 summary(df)
+head(df)
 ``` 
 
 #Shiny App link:
