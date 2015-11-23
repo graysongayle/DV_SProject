@@ -49,12 +49,18 @@ The above dataset - called Indicators - is a time series collection from 1960 to
   + Scatter Plot
 
 ##Cross Tab with KPI
-Importance:
-##Scatter Plot
-Importance:
-##Bar Chart with Reference Line
-Importance:
+Importance: This cross tab shows highlights five countries trademark applicant statistics in the year 2005.  Countries include Mexico, Republic, Czech Republic, Brazil, and Belgium.  The three parameters we focused on were resident trademark applicants, non resident trademark applicants, and total trademark applicants within the country.  The KPI shows the difference between 2005 statistics and 2004 statistics.  A high kpi shows a growth of trademark applications where as a low kpi (below zero) shows a decline in trademark applicants from the year 2004 to 2005.
 
+![](Crosstab.png)
+
+##Scatter Plot
+Importance: This bar chart focusing on the country Japan, looking at specific parameters including trademark applicants (resident and non resident) as well as patent applicants in the year 2013.  This bar chart sums the amount in each of these categories so we can see that Japan has a higher number of patent applicants than trademark applicants for residents.  But for nonresidents, there are less patent applicants than there are both trademark applicants for residents.  We see that there are very few trademark applicants for non residents of Japan, but a high number of resident patent applications. 
+
+![](Scatterplot.png)
+
+##Bar Chart with Reference Line
+Importance: This scatter plot shows the trend of patent applications from the year 2004 to 2013.  We see that the trend has been a linearly decreasing in patent applicants over the years.  There are a few exceptions with some countries where there has been a strong decrease in the number of patent applicants as we see in the outliers.  There are some countries, however, where patent applications have significantly increased from 2004.  We can see an example in the graph where in 2004, some points have approximately 75,000 patent applicants in 2004 and around 750,000 applicants in 2013.  The overall trend is a linear decrease in patent applicants with a few outliers, likely in developing nations.
+
+![](Barchart.png)
 ***
 
-#Plot Summaries

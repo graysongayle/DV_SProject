@@ -114,8 +114,8 @@ where indicator_name = \\\'Patent applications, residents\\\' and x2012 is not n
       #scale_x_continuous() +
       #scale_y_continuous() +
       #facet_wrap(~CLARITY, ncol=1) +
-      labs(title='Blending 2 Data Sources') +
-      labs(x=paste("X2004"), y=paste("X2013")) +
+      labs(title='Patent applicants from 2003 to 2014') +
+      labs(x=paste("Year 2004"), y=paste("Year 2013")) +
       layer(data=df1(), 
             mapping=aes(x=X2004, y=X2013), 
             stat="identity", 
